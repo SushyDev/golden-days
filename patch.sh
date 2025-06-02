@@ -1,1 +1,2 @@
-rm golden-days-base/pack.png
+# Remove chest textures
+find golden-days-base -type f -iname '*chest*' ! -iname '*chestplate*' -exec rm {} +
