@@ -6,14 +6,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Upload Artifacts
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Make patch script executable
+        run: chmod +x patch.sh
+      
+      - name: Run patch script
+        run: ./patch.sh
+      
+      - name: Upload golden-days-base artifacts
         uses: actions/upload-artifact@v4
         with:
           name: golden-days-base-latest-${{github.run_number}}
-          path: golden-days-base/*
-      - name: Upload Artifacts
+          path: golden-days-base/
+          if-no-files-found: warn
+      
+      - name: Upload golden-days-alpha artifacts
         uses: actions/upload-artifact@v4
         with:
           name: golden-days-alpha-latest-${{github.run_number}}
-          path: golden-days-alpha/*
+          path: golden-days-alpha/
+          if-no-files-found: warn
