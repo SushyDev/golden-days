@@ -1,1 +1,1 @@
-rm golden-days-base/pack.png
+find golden-days-base -iname '*chest*' ! -iname '*chestplate*' -exec rm -rf {} +
