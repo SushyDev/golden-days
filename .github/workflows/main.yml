@@ -16,16 +16,23 @@ jobs:
       - name: Run patch script
         run: ./patch.sh
       
-      - name: Upload golden-days-base artifacts
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: golden-days-base-latest-${{github.run_number}}
-          path: golden-days-base/
-          if-no-files-found: warn
-      
-      - name: Upload golden-days-alpha artifacts
+          name: golden-days-alpha-latest-dev
+          path: golden-days-alpha/*
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: golden-days-alpha-latest-${{github.run_number}}
-          path: golden-days-alpha/
-          if-no-files-found: warn
+          name: golden-days-shaders-latest-dev
+          path: golden-days-shaders/*
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-days-classic-latest-dev
+          path: golden-days-classic/*
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-days-better-foliage-latest-dev
+          path: golden-days-better-foliage/*
